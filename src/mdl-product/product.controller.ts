@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { SellerGuard } from 'src/guards/seller.guard';
+import { SellerGuard } from '../guards/seller.guard';
 import { CreateProductDTO, UpdateProductDTO } from './product.dto';
 import { ProductService } from './product.service';
-import { Product } from 'src/types/product';
-import { User } from 'src/utilities/user.decorator';
+import { Product } from '../types/product';
+import { User } from '../utilities/user.decorator';
 import { User as UserDocument } from '../types/user';
 
 @Controller('product')

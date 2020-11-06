@@ -4,7 +4,7 @@ import { Payload } from '../types/payload';
 import { LoginDTO, RegisterDTO } from './auth.dto';
 import { User } from '../utilities/user.decorator';
 import { SellerGuard } from '../guards/seller.guard';
-import { UserService } from 'src/mdl-shared/user.service';
+import { UserService } from '../mdl-shared/user.service';
 import { AuthService } from './auth.service';
 
 @Controller('auth')

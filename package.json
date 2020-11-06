@@ -10,7 +10,7 @@
     "gcp-build": "npm run build",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "npm run start:prod",
-    "start:dev": "nodemon",
+    "start:dev": "nodemon src/main.ts",
     "start:test": "NODE_ENV=test nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
     "start:prod": "node dist/main.js",
