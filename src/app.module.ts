@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config/dist';
-import { ConfigModule } from '@nestjs/config/dist/config.module';
 import { MongooseModule } from '@nestjs/mongoose';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { SharedModule } from './shared/shared.module';
-import { AuthModule } from './auth/auth.module';
-
+import { AuthModule } from './mdl-auth/auth.module';
+import { SharedModule } from './mdl-shared/shared.module';
+import { ProductModule } from './mdl-product/product.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -21,12 +21,9 @@ import { AuthModule } from './auth/auth.module';
     }),
     SharedModule,
     AuthModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-
-export class AppModule { }
-
-
-
+export class AppModule {}
