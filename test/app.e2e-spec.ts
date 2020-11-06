@@ -1,7 +1,6 @@
-import 'dotenv/config';
 import * as request from 'supertest';
+import { app } from './constants';
 
-const app = 'http://localhost:3000/api';
 
 describe('ROOT', () => {
   it('should ping', () => {

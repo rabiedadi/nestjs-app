@@ -8,7 +8,7 @@ export const ProductSchema = new mongoose.Schema({
     title: String,
     description: String,
     mage: String,
-    price: String,
+    price: Number,
     creted: {
         type: Date,
         default: Date.now

@@ -3,11 +3,10 @@ import 'dotenv/config';
 import * as mongoose from 'mongoose';
 import { LoginDTO, RegisterDTO } from 'src/mdl-auth/auth.dto';
 import * as request from 'supertest';
-
-const app = 'http://localhost:3000/api';
+import { app, database } from './constants';
 
 beforeAll(async () => {
-    await mongoose.connect(process.env.MONGO_URI, {
+    await mongoose.connect(database, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
