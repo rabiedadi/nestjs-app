@@ -35,8 +35,8 @@ describe('AUTH', () => {
         password: 'password',
     };
 
-    // let userToken: string;
-    // let sellerToken: string;
+    let userToken: string;
+    let sellerToken: string;
 
     it('should register user', () => {
         return request(app)
@@ -83,7 +83,7 @@ describe('AUTH', () => {
             .set('Accept', 'application/json')
             .send(user)
             .expect(({ body }) => {
-                // userToken = body.token;
+                userToken = body.token;
 
                 expect(body.token).toBeDefined();
                 expect(body.user.username).toEqual('username');
@@ -98,8 +98,7 @@ describe('AUTH', () => {
             .set('Accept', 'application/json')
             .send(sellerLogin)
             .expect(({ body }) => {
-                // sellerToken = body.token;
-
+                sellerToken = body.token;
                 expect(body.token).toBeDefined();
                 expect(body.user.username).toEqual('seller');
                 expect(body.user.password).toBeUndefined();
@@ -107,11 +106,11 @@ describe('AUTH', () => {
             });
     });
 
-    // it('should respect seller token', () => {
-    //     return request(app)
-    //         .get('/product/mine')
-    //         .set('Accept', 'application/json')
-    //         .set('Authorization', `Bearer ${sellerToken}`)
-    //         .expect(200);
-    // });
+    it('should respect seller token', () => {
+        return request(app)
+            .get('/product/mine')
+            .set('Accept', 'application/json')
+            .set('Authorization', `Bearer ${sellerToken}`)
+            .expect(200);
+    });
 });
